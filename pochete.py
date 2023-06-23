@@ -92,3 +92,15 @@ def permutacoes (string):
                 if string[i] + j not in perm:
                     perm.append(string[i] + j)
         return perm
+
+#lista todas as combinações de uma string
+def combinacoes (string):
+    if len(string) == 1:
+        return [string]
+    else:
+        comb = []
+        for i in range(len(string)):
+            for j in combinacoes(string[:i] + string[i+1:]):
+                if string[i] not in j:
+                    comb.append(string[i] + j)
+        return comb
