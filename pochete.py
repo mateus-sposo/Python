@@ -92,3 +92,8 @@ def permutacoes (string):
                 if string[i] + j not in perm:
                     perm.append(string[i] + j)
         return perm
+
+#printa um vetor com quebra de linha
+def escreve(vetor):
+    for i in vetor:
+        print(i)

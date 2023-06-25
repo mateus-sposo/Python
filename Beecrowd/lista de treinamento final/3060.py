@@ -5,12 +5,9 @@ def escreve(vetor):
     for i in vetor:
         print(i)
 
-if V % P == 0:
-    valores = [V // P] * P
-    escreve(valores)
+valores = [V // P] * P
 
-else:
-    valores = [V // P] * P
+if V % P != 0:
     c = 0
     while sum(valores) != V:
         valores[c] += 1
@@ -18,4 +15,5 @@ else:
             c = 0
         else:
             c += 1
-    escreve(valores)
+
+escreve(valores)
