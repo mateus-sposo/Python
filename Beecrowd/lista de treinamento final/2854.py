@@ -1,26 +1,56 @@
-#precisa ser arrumado
+Matriz = []
+M, N = map(int, input().split())
 
-M, N = map(int,input().split())
-Matriz = [[]]
-for i in range(N):
-    l = input().split()
-    flag = False
-    for item in Matriz:
-        if i == 0:
-            Matriz = [[l[0], l[2]]]
-            flag = True
-            break
-        elif l[0] in item:
-            if l[2] not in item:
-                item.append(l[2])
-            flag = True
-            break
-        elif l[2] in item:
-            item.append(l[0])
-            flag = True
-            break
+n1, _, n2 = input().split()
+Fam = [[n1, n2]]
 
-    if not flag:
-        Matriz.append([l[0], l[2]])
+for i in range(N-1):
+    n1, _, n2 = input().split()
+    Matriz.append([n1, n2])
 
-print(len(Matriz))
+
+Total = 2
+c = 0
+
+while True:
+    for i in range(len(Fam[c])):
+        j = 0
+        while True:
+            if j >= len(Matriz):
+                break
+            delete = False
+            if Matriz[j][0] not in Fam[c] and Matriz[j][1] in Fam[c]:
+                Fam[c].append(Matriz[j][0])
+                Total += 1
+                del(Matriz[j])
+                delete = True
+            elif Matriz[j][1] not in Fam[c] and Matriz[j][0] in Fam[c]:
+                Fam[c].append(Matriz[j][1])
+                Total += 1
+                del(Matriz[j])
+                delete = True
+            if Total >= M:
+                break
+            if not delete:
+                j += 1
+
+    if Total >= M:
+        break
+
+    for i in range(len(Matriz)):
+        if Matriz[i][0] not in Fam[c] and Matriz[i][1] not in Fam[c]:
+            flag = True
+            for j in range(c):
+                if Matriz[i][0] in Fam[j] or Matriz[i][1] in Fam[j]:
+                    flag = False
+                    break
+            if flag:
+                Fam.append([Matriz[i][0], Matriz[i][1]])
+                del(Matriz[i])
+                c += 1
+                Total += 2
+                break
+
+print(Fam, c+1)
+
+#no beecrowd não passou, deu time limit exceeded, mas funciona
