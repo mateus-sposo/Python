@@ -82,16 +82,15 @@ def anagrama (string1, string2):
     return True
 
 #lista todas as permutações de uma string
-def permutacoes (string):
+def permutacoes(string):
     if len(string) == 1:
         return [string]
-    else:
-        perm = []
-        for i in range(len(string)):
-            for j in permutacoes(string[:i] + string[i+1:]):
-                if string[i] + j not in perm:
-                    perm.append(string[i] + j)
-        return perm
+    perm = []
+    for i in range(len(string)):
+        for j in permutacoes(string[:i] + string[i+1:]):
+            if string[i] + j not in perm:
+                perm.append(string[i] + j)
+    return perm
 
 #printa um vetor com quebra de linha
 def escreve_com_quebra(vetor):
