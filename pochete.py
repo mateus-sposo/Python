@@ -94,6 +94,11 @@ def permutacoes (string):
         return perm
 
 #printa um vetor com quebra de linha
-def escreve(vetor):
+def escreve_com_quebra(vetor):
     for i in vetor:
         print(i)
+
+#printa um vetor sem quebra de linha
+def escreve_sem_quebra(vetor):
+    for i in vetor:
+        print(i, end = "")
