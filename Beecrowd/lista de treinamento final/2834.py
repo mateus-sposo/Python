@@ -8,14 +8,7 @@ N_armarios = (Mi//2) * (Mj//2)
 # (Mi * Mj) - (N_armarios * 2) - (espacos_vazios)
 
 if (Mi % 4 == 3) or (Mj % 4 == 3):
-    if ((abs(Ii - Fi)) + (abs(Ij - Fj))) %4 == 2:
-        espacos_vazios = 0
-    else:
-        espacos_vazios = 2
+    espacos_vazios = 0 if ((abs(Ii - Fi)) + (abs(Ij - Fj))) %4 == 2 else 2
 else:
-    if ((abs(Ii - Fi)) + (abs(Ij - Fj))) %4 == 2:
-        espacos_vazios = 2
-    else:
-        espacos_vazios = 0
-
+    espacos_vazios = 2 if ((abs(Ii - Fi)) + (abs(Ij - Fj))) %4 == 2 else 0
 print((Mi * Mj) - (N_armarios * 2) - (espacos_vazios))
