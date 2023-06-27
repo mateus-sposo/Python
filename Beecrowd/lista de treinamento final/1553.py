@@ -20,3 +20,12 @@ while True:
 
     c = sum(1 for i in M if i[1] >= K)
     print(c)
+
+    c = 0
+
+    for i in M:
+        if i[1] >= K:
+            c += 1
+    
+    print(c)
+
