@@ -3,9 +3,9 @@ v = sorted([int(a) for a in input().split()])
 M = [[v[0], 1]]
 
 for i in range(1, N):
-    for j in range(len(M)):
-        if v[i] == M[j][0]:
-            M[j][1] += 1
+    for i in M:
+        if v[i] == i[0]:
+            i[1] += 1
             flag = True
             break
         else:
