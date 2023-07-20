@@ -1,2 +1,5 @@
 __pycache__/
-testes.py/
+testes/
+    __pycache__/
+    testes.py
+```
